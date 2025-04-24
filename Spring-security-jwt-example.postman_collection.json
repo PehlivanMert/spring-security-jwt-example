@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "5c31c976-3a0e-47eb-ad1f-7eb05f26d16e",
+		"name": "Spring-security-jwt-example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44019833",
+		"_collection_link": "https://mertpehlivan.postman.co/workspace/Mert-Pehlivan's-Workspace~bd1386bc-7dd7-427c-8f58-774ec79465ec/collection/44019833-5c31c976-3a0e-47eb-ad1f-7eb05f26d16e?action=share&source=collection_link&creator=44019833"
+	},
+	"item": [
+		{
+			"name": "addNewUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Rabia\",\n  \"username\": \"rabiaP\",\n  \"password\": \"password123\",\n  \"authorities\": [\"ROLE_USER\"]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/auth/addNewUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"addNewUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generateToken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"mertP\",\n  \"password\": \"password123\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/auth/generateToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"generateToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZXJ0UCIsImlhdCI6MTc0NTUwNDA0MiwiZXhwIjoxNzQ1NTA0MTYyfQ.658TZNeE6gfp10n82aHtCljvnt8lk-4qqKemN-64NSU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/auth/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZXJ0UCIsImlhdCI6MTc0NTUwNDA0MiwiZXhwIjoxNzQ1NTA0MTYyfQ.658TZNeE6gfp10n82aHtCljvnt8lk-4qqKemN-64NSU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/auth/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "welcome",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/auth/welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"welcome"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
